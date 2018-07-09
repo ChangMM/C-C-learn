@@ -9,6 +9,7 @@
 #include <iostream>
 #include<iomanip>
 #include <string>
+#include "warrior.cpp"
 using namespace std;
 
 // define headquarter
@@ -63,6 +64,23 @@ void Headquarter::produceWarrior(int time, int position) {
     << ' ' << warriorTotalNum << " born with strength " << warriorLifeValues[position] << "," << warriorNum[position]
     << ' ' << warriorNames[position] << " in " << headquarterName << " headquarter" << endl;
     warriorAllLifeValue -= warriorLifeValues[position];
+    string warriorName = warriorNames[position];
+    int lifeValue = warriorLifeValues[position];
+    if (warriorName == "dragon") {
+        Dragon solider(warriorTotalNum, lifeValue, warriorAllLifeValue);
+        solider.printInfo();
+    } else if (warriorName == "ninja") {
+        Ninja solider(warriorTotalNum, lifeValue);
+        solider.printInfo();
+    } else if (warriorName == "lion") {
+        Lion solider(warriorTotalNum, lifeValue, warriorAllLifeValue);
+        solider.printInfo();
+    } else if (warriorName == "iceman") {
+        Iceman solider(warriorTotalNum, lifeValue);
+        solider.printInfo();
+    } else if (warriorName == "wolf") {
+//        todo
+    }
 }
 
 void Headquarter::dispatchWarrior(){
