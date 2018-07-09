@@ -9,12 +9,15 @@
 
 #include <iostream>
 #include <string>
+#include "test/multifile.cpp"
+
 using namespace std;
 
 int main(int argc, const char * argv[]) {
     string str = "hello";
     str = str + "1";
     str = str + "2";
-    std::cout << str;
+    std::cout << str<< endl;
+    test();
     return 0;
 }

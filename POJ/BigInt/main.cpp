@@ -9,7 +9,6 @@
 
 #include <iostream>
 #include <string>
-#include <cmath>
 #include <stdlib.h>
 
 using namespace std;
@@ -190,6 +189,7 @@ BigInt BigInt::operator*(const BigInt &rhs) {
         tempRet = tempStr;
         ret = tempRet + ret;
         tempStr = ""; //需要清空下
+        n = 0;
     }
     
     return ret;
