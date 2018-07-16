@@ -33,7 +33,6 @@ int searchPath(PLANT secPlant, int dX, int dY, int r, int c, int n) {
     steps = 2;
     while(plant.x<=r && plant.x>=1 && plant.y<=c && plant.y>=1) {
         if (!binary_search(plants, plants+n, plant)) {
-                //每一步都必须踩倒水稻才算合理，否则这就不是一条行走路径
             steps = 0;
             break;
         }
