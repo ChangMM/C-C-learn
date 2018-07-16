@@ -24,10 +24,13 @@ int guess(int row){
     for (int i=1; i<=row; i++){
         if (paints[1][i]) steps++;
     }
+
+    // 计算最后一行是否符合
     for (int i = 1; i < row; i++){
         if((paints[row][i-1]+paints[row][i]+paints[row][i+1]+paints[row-1][i])%2 != wall[row][i])
             return -1;
     }
+
     return steps;
 }
 
@@ -53,8 +56,8 @@ int emumerate(int row) {
     return steps;
 }
 void clear (int row) {
-    for (int i = 0; i<=row+1; i++){
-        for (int j = 0; j<=row+1; j++){
+    for (int i = 0; i<= row+1; i++){
+        for (int j = 0; j<= row+1; j++){
             paints[i][j] = 0;
             wall[i][j] = 0;
         }
