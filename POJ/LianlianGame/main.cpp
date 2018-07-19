@@ -9,12 +9,14 @@
 
 #include <iostream>
 #include <memory.h>
+#include <deque>
 
 using namespace std;
 #define MAX 75
 char board[MAX+2][MAX+2];
 bool mark[MAX+2][MAX+2];
 int minStep, w, h, direction[4][2]={{0,1},{0,-1},{-1,0},{1,0}};
+deque<int*> path;
 
 void clear(){
     for(int i=0; i<MAX+2; i++){
@@ -28,21 +30,24 @@ void Search(int now_x, int now_y, int end_x, int end_y, int step, int f) {
         return ;
     }
     if (now_x== end_x&&now_y==end_y) {
-        if (minStep > step) {
-            minStep = step;
-        }
+        minStep = step;
         return ;
     }
+    int item[2] ={0};
     for (int i = 0; i<4; i++) {
         int x = now_x + direction[i][0];
         int y = now_y + direction[i][1];
         if((x>-1)&&(x<w+2)&&(y>-1)&&(y<h+2)&&(((board[y][x]==' ')&&(mark[y][x]==false))||((x==end_x)&&(end_y==y)&&(board[y][x]=='X')))){
             mark[y][x] = true;
+            item[0] = x;
+            item[1] = y;
+            path.push_back(item);
             if(f==i) {
                 Search(x, y, end_x, end_y, step, i);
             } else {
                 Search(x, y, end_x, end_y, step+1, i);
             }
+            path.pop_back();
             mark[y][x] = false;
         }
     }
@@ -70,13 +75,24 @@ int main(int argc, const char * argv[]) {
                 break;
             }
             count++;
+
+            // 初始化最小路径值、清空标记以及路径栈
             minStep = 10000;
             memset(mark, false, sizeof(mark));
+            path.clear();
+
             Search(begin_x, begin_y, end_x, end_y, 0, -1);
-            if (minStep < 10000)
-                printf("Pair %d: %d segments.\n", count, minStep);
-            else
-                printf("Pair %d: impossible.\n", count);
+            if (minStep < 10000){
+                cout<<"Pair "<<count<<": "<<minStep<<" segments."<<endl;
+                cout<<"路径为：";
+                for (int i = 0; i < path.size(); i++){
+                    cout<<"("<<path[i][0]<<", "<<path[i][1]<<")";
+                }
+                cout<<endl;
+            }else{
+                cout<<"Pair "<<count<<": impossible."<<endl;
+            }
+
         }
     }
 
