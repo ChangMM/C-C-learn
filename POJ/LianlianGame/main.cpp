@@ -31,6 +31,11 @@ void Search(int now_x, int now_y, int end_x, int end_y, int step, int f) {
     }
     if (now_x== end_x&&now_y==end_y) {
         minStep = step;
+        cout<<"路径为：";
+        for (int i = 0; i < path.size(); i++){
+            cout<<"("<<path[i][0]<<", "<<path[i][1]<<")";
+        }
+        cout<<endl;
         return ;
     }
     int item[2] ={0};
@@ -84,11 +89,6 @@ int main(int argc, const char * argv[]) {
             Search(begin_x, begin_y, end_x, end_y, 0, -1);
             if (minStep < 10000){
                 cout<<"Pair "<<count<<": "<<minStep<<" segments."<<endl;
-                cout<<"路径为：";
-                for (int i = 0; i < path.size(); i++){
-                    cout<<"("<<path[i][0]<<", "<<path[i][1]<<")";
-                }
-                cout<<endl;
             }else{
                 cout<<"Pair "<<count<<": impossible."<<endl;
             }
