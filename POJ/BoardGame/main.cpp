@@ -77,7 +77,7 @@ int main(int argc, const char * argv[]) {
         for(int j=1; j<=platformCount; j++){
             cin>>platForms[j].Lx>>platForms[j].Rx>>platForms[j].h;
         }
-        sort(platForms,platForms+platformCount+1);
+        sort(platForms, platForms+platformCount+1);
         cout<<minTime(0, true);
     }
     return 0;
