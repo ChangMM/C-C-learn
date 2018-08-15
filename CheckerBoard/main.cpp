@@ -4,6 +4,7 @@
 //
 //  Created by cmm on 2018/7/23.
 //  Copyright © 2018年 bingyan. All rights reserved.
+//  递归法 POJ 棋盘分割
 //
 
 #include <iostream>

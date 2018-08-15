@@ -4,7 +4,7 @@
     //
     //  Created by cmm on 2018/7/20.
     //  Copyright © 2018年 bingyan. All rights reserved.
-    //  地柜解决练练看小游戏
+    //  递归解决练练看小游戏
     //
 
 #include <iostream>
