@@ -14,7 +14,7 @@ typedef struct node {
     int num;
 } Node;
 
-// create node list
+    // create node list
 Node * CreateNode (int total) {
     Node * head = malloc(sizeof(Node));
     Node * tail = malloc(sizeof(Node));
@@ -32,7 +32,7 @@ Node * CreateNode (int total) {
     return head;
 }
 
-// release node
+    // release node
 Node * DeleteNode (Node * head, int m) {
     int count = 1;
     Node* temp = malloc(sizeof(Node));
@@ -58,12 +58,12 @@ int main(int argc, const char * argv[]) {
         while(head->next != head) {
             head = DeleteNode(head, gap);
         }
-//      printf("%d\n", head->num);  // It does not work printing the result directly. why?
+            //      printf("%d\n", head->num);  // It does not work printing the result directly. why?
         result[count] = head->num;
         count++;
     }
     for (int i =0; i< count; i++){
-       printf("%d\n", result[i]);
+        printf("%d\n", result[i]);
     }
     return 0;
 }
