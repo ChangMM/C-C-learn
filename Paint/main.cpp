@@ -4,6 +4,7 @@
 //
 //  Created by cmm on 2018/7/16.
 //  Copyright © 2018年 bingyan. All rights reserved.
+//  POJ 枚举法解决画家问题
 //
 
 #include <iostream>
