@@ -56,8 +56,7 @@ int main(){
 //    int n;
 //    if (str[s] != man){
 //        return s;
-//    }
-//    else{
+//    } else {
 //        n = founction(str, s + 1);
 //        cout << s << ' ' << n << endl;
 //        return founction(str, n + 1);
