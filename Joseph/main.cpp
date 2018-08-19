@@ -14,14 +14,14 @@ typedef struct node {
     int num;
 } Node;
 
-    // create node list
+// create node list
 Node * CreateNode (int total) {
-    Node * head = malloc(sizeof(Node));
-    Node * tail = malloc(sizeof(Node));
+    Node * head = new Node;
+    Node * tail = new Node;
     head->num = 1;
     tail = head;
     for (int i=2; i<=total;i++){
-        Node * p = malloc(sizeof(Node));
+        Node * p = new Node;
         p->num = i;
         tail->next = p;
         p->prev = tail;
@@ -32,10 +32,10 @@ Node * CreateNode (int total) {
     return head;
 }
 
-    // release node
+// release node
 Node * DeleteNode (Node * head, int m) {
     int count = 1;
-    Node* temp = malloc(sizeof(Node));
+    Node* temp = new Node;
     temp = head;
     while(count < m) {
         temp = temp->next;
@@ -50,7 +50,7 @@ Node * DeleteNode (Node * head, int m) {
 
 int main(int argc, const char * argv[]) {
     int total, gap, result[301], count = 0;
-    while(scanf("%d%d", &total, &gap)){
+    while(scanf("%d %d", &total, &gap)){
         if (total == 0 && gap ==0) {
             break;
         }
@@ -58,7 +58,7 @@ int main(int argc, const char * argv[]) {
         while(head->next != head) {
             head = DeleteNode(head, gap);
         }
-            //      printf("%d\n", head->num);  // It does not work printing the result directly. why?
+//      printf("%d\n", head->num);  // It does not work printing the result directly. why?
         result[count] = head->num;
         count++;
     }
