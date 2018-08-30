@@ -45,8 +45,11 @@ void DFS(int pos_x, int pos_y){
             DFS(dx, dy);
             if(mark)
                 return;
+
+            // 本题目中下面两步回溯不做的不影响结果，但是要注意的是，对与回溯的过程中有变量因果关系的步奏 要注意回溯的顺序
             loc[step].x = 0;
             loc[step].y = 0;
+            
             map[dx][dy] = false;
             step--;
         }
